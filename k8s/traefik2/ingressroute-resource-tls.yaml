@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingress-resource-traefik-tls
+spec:
+  tls:
+    secretName: cert-traefik-ssl
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`bench-ingress-traefik.example.com`) && PathPrefix(`/hello`)
+    kind: Rule
+    services:
+    - name: hello-server
+      port: 8080
