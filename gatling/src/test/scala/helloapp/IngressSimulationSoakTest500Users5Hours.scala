@@ -4,7 +4,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
-class IngressSimulationSoakTest2Hours extends Simulation {
+class IngressSimulationSoakTest500Users5Hours extends Simulation {
   val ingressBaseUrl = System.getenv("INGRESS_BASE_URL")
 
   val httpProtocol = http
@@ -20,5 +20,5 @@ class IngressSimulationSoakTest2Hours extends Simulation {
 
   // 1 Check overview during users arriving
   // 2 Check throughput
-  setUp(scn.inject(rampUsersPerSec(1) to 300 during 10.minutes, constantUsersPerSec(300) during 2.hours)).protocols(httpProtocol)
+  setUp(scn.inject(rampUsersPerSec(1) to 500 during 10.minutes, constantUsersPerSec(500) during 5.hours)).protocols(httpProtocol)
 }
