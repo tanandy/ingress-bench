@@ -7,9 +7,9 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   tls:
-  - hosts:
-    - bench-ingress-nginx.example.com
-    secretName: cert-nginx-ssl
+    - hosts:
+      - bench-ingress-nginx.example.com
+      secretName: cert-nginx-ssl
   rules:
     - host: bench-ingress-nginx.example.com
       http:
