@@ -11,13 +11,13 @@ spec:
     - bench-ingress-nginx.example.com
     secretName: cert-nginx-ssl
   rules:
-  - host: bench-ingress-nginx.example.com
-    http:
-      paths:
-      - path: /hello
-        pathType: Prefix
-        backend:
-          service:
-            name: hello-server
-            port:
-              number: 8080
+    - host: bench-ingress-nginx.example.com
+      http:
+        paths:
+        - path: /hello
+          pathType: Prefix
+          backend:
+            service:
+              name: hello-server
+              port:
+                number: 8080
